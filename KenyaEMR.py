@@ -6,8 +6,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-HOSTNAME = 'www.mwandihi.co.ke'
-hostname = HOSTNAME
+adminEmail= 'emmanueljan80@gmail.com'
+hostname = 'www.mwandihi.co.ke'
 services = [
     {"port": "80",
      "description":"Notifiy service"
@@ -27,9 +27,7 @@ services = [
     {"port": "8084",
      "description":"Lab service"
      },
-    
-    
-    ]
+]
 
 res = [sub['port']for sub in services]
 res1 = [sub['description']for sub in services]
@@ -39,7 +37,7 @@ def mail(message):
     #The mail addresses and password
     sender_address = 'pkagwe07@gmail.com'
     sender_pass = 'kagwepeter07@gmail.com'
-    receiver_address = 'kagwepeter07@gmail.com'
+    receiver_address = adminEmail
     #Setup the MIME
     message = MIMEMultipart()
     message['From'] = sender_address
@@ -58,11 +56,6 @@ def mail(message):
     
   
 def func():
-
-    
-    
-    
-
     response = os.system("ping " + hostname)
         # and then check the response...
     if response == 0:
@@ -86,8 +79,8 @@ def func():
             print(des + ' port is working')
             
         else:
-            mail(des + ' not working' + ' in' + hostname )
-            print(des + ' not working' + ' in' + hostname)
+            mail(des + ' not working' + ' in ' + hostname )
+            print(des + ' not working' + ' in ' + hostname)
   
 schedule.every(0.05).minutes.do(func)
   
