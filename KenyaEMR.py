@@ -6,6 +6,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+# in order to use the service, we need adminEmail, hostname, services(array of services)
 adminEmail= 'emmanueljan80@gmail.com'
 hostname = 'www.mwandihi.co.ke'
 services = [
@@ -29,9 +30,10 @@ services = [
      },
 ]
 
-res = [sub['port']for sub in services]
-res1 = [sub['description']for sub in services]
+port = [sub['port']for sub in services]
+description = [sub['description']for sub in services]
 
+# This function sends emails to the system admin: it accepts the message content as a parameter
 def mail(message):
     mail_content = message
     #The mail addresses and password
@@ -69,10 +71,10 @@ def func():
         mail( hostname + ' server is down')
 
 
-    for element in res:
+    for element in port:
         new_element = int(element)
-        ind = res.index(element)
-        des = res1[ind]
+        ind = port.index(element)
+        des = description[ind]
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex(('mwandishi.co.ke', new_element))
         if result == 0:
