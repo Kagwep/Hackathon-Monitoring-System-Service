@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 # in order to use the service, we need adminEmail, hostname, services(array of services)
 adminEmail= 'emmanueljan80@gmail.com'
 hostname = 'www.mwandihi.co.ke'
-services = [
+services_open = [
     {"port": "80",
      "description":"Notifiy service"
      },
@@ -30,8 +30,33 @@ services = [
      },
 ]
 
-port = [sub['port']for sub in services]
-description = [sub['description']for sub in services]
+services_closed = [
+    {"port": "80",
+     "description":"Notifiy service"
+     },
+    {"port": "8080",
+     "description":"Database service"
+     },
+    {"port": "8041",
+     "description":"Messaging service"
+     },
+    {"port": "8082",
+     "description":"Triage service"
+     },
+    {"port": "8083",
+     "description":"Reports service"
+     },
+    {"port": "8084",
+     "description":"Lab service"
+     },
+]
+
+
+port = [sub['port']for sub in services_open]
+description = [sub['description']for sub in services_open]
+
+ports_closed = [sub['port']for sub in services_open]
+description_of_ports = [sub['description']for sub in services_open]
 
 # This function sends emails to the system admin: it accepts the message content as a parameter
 def mail(message):
@@ -82,6 +107,20 @@ def func():
             
         else:
             mail(des + ' not working' + ' in ' + hostname )
+            print(des + ' not working' + ' in ' + hostname)
+
+    for port_element in ports_closed:
+        new_port_element = int(port_element)
+        indx = port.index(port_element)
+        desc = description_of_ports[indx]
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        result = sock.connect_ex(('mwandishi.co.ke', new_port_element))
+        if result == 0:
+            mail(des + ' working' + ' in ' + hostname + " (Should be closed)" )
+            print(des + ' port is working')
+            
+        else:
+            
             print(des + ' not working' + ' in ' + hostname)
   
 schedule.every(0.05).minutes.do(func)
