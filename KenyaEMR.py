@@ -101,7 +101,7 @@ def func():
         ind = port.index(element)
         des = description[ind]
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        result = sock.connect_ex(('mwandishi.co.ke', new_element))
+        result = sock.connect_ex((hostname, new_element))
         if result == 0:
             print(des + ' port is working')
             
@@ -114,7 +114,7 @@ def func():
         indx = port.index(port_element)
         desc = description_of_ports[indx]
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        result = sock.connect_ex(('mwandishi.co.ke', new_port_element))
+        result = sock.connect_ex((hostname, new_port_element))
         if result == 0:
             mail(des + ' working' + ' in ' + hostname + " (Should be closed)" )
             print(des + ' port is working')
