@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 adminEmail= 'stephenwanjala145@gmail.com'
 hostname = 'www.mwandishi.co.ke'
 services_open = [
-    {"port": "80",
+    {"port": "8011",
      "description":"Notifiy service"
      },
     {"port": "8080",
@@ -117,12 +117,12 @@ def func():
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex((hostname, new_port_element))
         if result == 0:
-            mail(des + ' working' + ' in ' + hostname + " on port "+ port_element +" (Should be closed)" )
-            print(des + ' port is working')
+            mail(desc + ' working' + ' in ' + hostname + " on port "+ port_element +" (Should be closed)" )
+            print(desc + ' port is working')
             
         else:
             
-            print(des + ' not working' + ' in ' + hostname)
+            print(desc + ' not working' + ' in ' + hostname)
   
 #scheduling the time interval in which the function will execute
 schedule.every(timeInterval).minutes.do(func)
