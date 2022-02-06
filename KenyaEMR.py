@@ -96,7 +96,7 @@ def func():
         print(pingstatus)
         mail( hostname + ' server is down')
 
-#open ports
+     #socket function for open ports
     for element in port:
         new_element = int(element)
         ind = port.index(element)
@@ -109,7 +109,7 @@ def func():
         else:
             mail(des + ' not working' + ' in ' + hostname )
             print(des + ' not working' + ' in ' + hostname)
-#closed ports
+     #socket function for closed ports
     for port_element in ports_closed:
         new_port_element = int(port_element)
         indx = port.index(port_element)
@@ -124,6 +124,7 @@ def func():
             
             print(des + ' not working' + ' in ' + hostname)
   
+#scheduling the time interval in which the function will execute
 schedule.every(timeInterval).minutes.do(func)
   
 while True:
