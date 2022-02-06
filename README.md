@@ -1,6 +1,6 @@
 # Monitoring System Micro-service
 
-    This project wwas made by python version 3
+    This project was made by python version 3
 
 # The micro-service accepts 5 parameters
 
