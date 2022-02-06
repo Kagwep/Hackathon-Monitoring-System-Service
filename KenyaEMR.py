@@ -7,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # in order to use the service, we need adminEmail, hostname, services(array of services)
-adminEmail= 'carolynendunge01@gmail.com'
+adminEmail= 'emmanueljan80@gmail.com'
 hostname = 'www.mwandishi.co.ke'
 services_open = [
     {"port": "80",
