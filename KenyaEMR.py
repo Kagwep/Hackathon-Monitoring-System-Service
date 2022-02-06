@@ -86,7 +86,7 @@ def func():
     response = os.system("ping " + hostname)
         # and then check the response...
     if response == 0:
-            
+    
         pingstatus = "Network Active"
         print(pingstatus)
             
@@ -95,7 +95,7 @@ def func():
         print(pingstatus)
         mail( hostname + ' server is down')
 
-
+#open ports
     for element in port:
         new_element = int(element)
         ind = port.index(element)
@@ -108,7 +108,7 @@ def func():
         else:
             mail(des + ' not working' + ' in ' + hostname )
             print(des + ' not working' + ' in ' + hostname)
-
+#closed ports
     for port_element in ports_closed:
         new_port_element = int(port_element)
         indx = port.index(port_element)
