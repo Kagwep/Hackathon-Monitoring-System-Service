@@ -7,8 +7,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # in order to use the service, we need adminEmail, hostname, services(array of services)
-adminEmail= 'emmanueljan80@gmail.com'
-hostname = 'www.mwandihi.co.ke'
+adminEmail= 'carolynendunge01@gmail.com'
+hostname = 'www.mwandishi.co.ke'
 services_open = [
     {"port": "80",
      "description":"Notifiy service"
@@ -95,7 +95,7 @@ def func():
         print(pingstatus)
         mail( hostname + ' server is down')
 
-
+     #socket function for open ports
     for element in port:
         new_element = int(element)
         ind = port.index(element)
@@ -108,7 +108,7 @@ def func():
         else:
             mail(des + ' not working' + ' in ' + hostname )
             print(des + ' not working' + ' in ' + hostname)
-
+     #socket function for closed ports
     for port_element in ports_closed:
         new_port_element = int(port_element)
         indx = port.index(port_element)
@@ -123,7 +123,7 @@ def func():
             
             print(des + ' not working' + ' in ' + hostname)
   
-schedule.every(0.05).minutes.do(func)
+schedule.every(0.05).minutes.do(func) #scheduling the time interval in which the function will execute
   
 while True:
     schedule.run_pending()
