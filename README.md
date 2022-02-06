@@ -1,7 +1,9 @@
-----Monitoring System Micro-service------
+# Monitoring System Micro-service
 
-# This project wwas made by python version 3
+    This project wwas made by python version 3
+
 # The micro-service accepts 5 parameters
+
     IP Resource (domain name eg mwandishi.co.ke),
     Email Address,
     services_open[
@@ -26,6 +28,7 @@
     ]
     timeInterval in minutes
 
----- System Requirements ----
+# System Requirements
+
     python3
     schedule and nmap should be installed
