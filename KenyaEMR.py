@@ -53,6 +53,7 @@ services_closed = [
     },
 ]
 
+# The mail function that accepts all the 5 parameters
 def mss(adminEmail, hostname, timeInterval, services_open, services_closed):
     
     port = [sub['port']for sub in services_open]
